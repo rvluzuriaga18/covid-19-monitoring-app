@@ -1,0 +1,13 @@
+ion-thumbnail {
+  width: 100px;
+  height: 65px;
+}
+
+.flag {
+  width: 105px !important;
+  height: 60px !important;
+}
+
+.ion-alert-custom-class .alert-title {
+    text-align: center;
+}

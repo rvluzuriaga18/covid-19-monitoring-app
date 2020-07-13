@@ -1,19 +1,19 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
+  IonRouterOutlet,
+  IonTabs,
   IonIcon,
   IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
+  IonTabBar,  
   IonTabButton,
-  IonTabs
 } from '@ionic/react';
+import React from 'react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { Redirect, Route } from 'react-router-dom';
+import { globeOutline, flagOutline, informationCircleOutline} from 'ionicons/icons';
+import Global from './pages/Global';
+import Countries from './pages/Countries';
+import About from './pages/About';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,6 +31,9 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+/* Flag */
+import '../node_modules/flag-icon-css/css/flag-icon.css'
+
 /* Theme variables */
 import './theme/variables.css';
 
@@ -39,23 +42,23 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/tab1" component={Tab1} exact={true} />
-          <Route path="/tab2" component={Tab2} exact={true} />
-          <Route path="/tab3" component={Tab3} />
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+          <Route path="/global" component={Global} exact={true} />
+          <Route path="/countries" component={Countries} exact={true} />
+          <Route path="/about" component={About} />
+          <Route path="/" render={() => <Redirect to="/global" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="global" href="/global">
+            <IonIcon icon={globeOutline} />
+            <IonLabel>Global</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="countries" href="/countries">
+            <IonIcon icon={flagOutline} />
+            <IonLabel>Countries</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="about" href="/about">
+            <IonIcon icon={informationCircleOutline} />
+            <IonLabel>About</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
